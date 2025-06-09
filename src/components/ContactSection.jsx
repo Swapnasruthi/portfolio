@@ -5,9 +5,11 @@ import {
   MapPin,
   Phone,
   Send,
-  Twitch,
-  Twitter,
+  CodeIcon,
+  Github,
+ 
 } from "lucide-react";
+import { SiLeetcode } from "react-icons/si";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
@@ -37,7 +39,7 @@ export const ContactSection = () => {
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Have a project in mind or want to collaborate? Feel free to reach out.
+          Have a project in mind or want to Hire? Feel free to reach out.
           I'm always open to discussing new opportunities.
         </p>
 
@@ -59,7 +61,7 @@ export const ContactSection = () => {
                     href="mailto:hello@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    hello@gmail.com
+                    swapnamajji2005@gmail.com
                   </a>
                 </div>
               </div>
@@ -73,7 +75,7 @@ export const ContactSection = () => {
                     href="tel:+11234567890"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    +1 (123) 456-7890
+                    +91 8247679349
                   </a>
                 </div>
               </div>
@@ -84,7 +86,7 @@ export const ContactSection = () => {
                 <div>
                   <h4 className="font-medium"> Location</h4>
                   <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Vancouver, BC, Canada
+                    Andhra Pradesh, India
                   </a>
                 </div>
               </div>
@@ -93,17 +95,19 @@ export const ContactSection = () => {
             <div className="pt-8">
               <h4 className="font-medium mb-4"> Connect With Me</h4>
               <div className="flex space-x-4 justify-center">
-                <a href="#" target="_blank">
-                  <Linkedin />
+                <a href="https://www.linkedin.com/in/swapna-majji-448232305/" target="_blank">
+                  <Linkedin color="#0A66C2"/>
+                </a>
+                <a href="https://leetcode.com/u/swapnasruthi/" target="_blank">
+                  {/* <CodeIcon /> */}
+                  <SiLeetcode size={23} color="#FFA116"/>
+
+                </a>
+                <a href="https://github.com/Swapnasruthi" target="_blank">
+                  <Github />
                 </a>
                 <a href="#" target="_blank">
-                  <Twitter />
-                </a>
-                <a href="#" target="_blank">
-                  <Instagram />
-                </a>
-                <a href="#" target="_blank">
-                  <Twitch />
+                  
                 </a>
               </div>
             </div>
@@ -130,7 +134,7 @@ export const ContactSection = () => {
                   name="name"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="Pedro Machado..."
+                  placeholder="swapna majji..."
                 />
               </div>
 
@@ -148,7 +152,7 @@ export const ContactSection = () => {
                   name="email"
                   required
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="john@gmail.com"
+                  placeholder="swapnamajji2005@gmail.com"
                 />
               </div>
 

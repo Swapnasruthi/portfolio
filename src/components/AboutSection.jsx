@@ -1,4 +1,4 @@
-import { Briefcase, Code, User } from "lucide-react";
+import { Brain, Briefcase, Code, User } from "lucide-react";
 
 export const AboutSection = () => {
   return (
@@ -16,16 +16,14 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground">
-              With over 5 years of experience in web development, I specialize
-              in creating responsive, accessible, and performant web
-              applications using modern technologies.
+              With a strong foundation in both frontend and backend
+              technologies, I bring ideas to life by building responsive,
+              scalable, and high-performing web and mobile applications.
             </p>
 
             <p className="text-muted-foreground">
-              I'm passionate about creating elegant solutions to complex
-              problems, and I'm constantly learning new technologies and
-              techniques to stay at the forefront of the ever-evolving web
-              landscape.
+              I specialize in JavaScript, React, Node.js, MongoDB, and Flutter —
+              blending clean code with efficient architecture.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
@@ -35,10 +33,10 @@ export const AboutSection = () => {
               </a>
 
               <a
-                href=""
+                href="https://drive.google.com/file/d/1NGcySTnaRwe48Lq41t2dd9Mfh44tD9qZ/view?usp=drive_link"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
-                Download CV
+                View Resume
               </a>
             </div>
           </div>
@@ -61,13 +59,14 @@ export const AboutSection = () => {
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <User className="h-6 w-6 text-primary" />
+                  <Brain className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">UI/UX Design</h4>
+                  <h4 className="font-semibold text-lg">Problem Solving</h4>
                   <p className="text-muted-foreground">
-                    Designing intuitive user interfaces and seamless user
-                    experiences.
+                    Solved 400+ data structures and algorithms problems on
+                    LeetCode and GFG to sharpen logical thinking and improve coding
+                    efficiency.
                   </p>
                 </div>
               </div>

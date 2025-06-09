@@ -3,32 +3,32 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "SaaS Landing Page",
+    title: "Food Ordering App",
     description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
-    demoUrl: "#",
-    githubUrl: "#",
+    image: "/projects/p1.png",
+    tags: ["React", "TailwindCSS", "Redux"],
+    demoUrl: "https://food-ordeing-app.vercel.app/",
+    githubUrl: "https://github.com/Swapnasruthi/Food_ordeing_App",
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
+    title: "DevTinder",
     description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "/projects/project2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
+      "Interactive Platform for Developers.",
+    image: "/projects/p2.png",
+    tags: ["NodeJs","ReactJs","Express","Redux","Tailwindcss"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Swapnasruthi/devTinder-frontend",
   },
   {
     id: 3,
-    title: "E-commerce Platform",
+    title: "Youtube Clone",
     description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/project3.png",
-    tags: ["React", "Node.js", "Stripe"],
+      "Full-featured youtube clone with video streaming.",
+    image: "/projects/p3.png",
+    tags: ["React", "Tailwind", "vite", "Firebase"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Swapnasruthi/my_youtube",
   },
 ];
 
@@ -100,7 +100,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
-            href="https://github.com/machadop1407"
+            href="https://github.com/Swapnasruthi"
           >
             Check My Github <ArrowRight size={16} />
           </a>
