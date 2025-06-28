@@ -30,6 +30,16 @@ const projects = [
     demoUrl: "#",
     githubUrl: "https://github.com/Swapnasruthi/my_youtube",
   },
+  {
+    id: 4,
+    title: "Desi Dost",
+    description:
+      "Hyper-Personalized, Regional AI Chatbot.",
+    image: "/projects/p4.png",
+    tags: ["React", "Tailwind", "GenKit", "Firebase"],
+    demoUrl: "https://studio--bro-chat-xjfnq.us-central1.hosted.app/",
+    githubUrl: "https://github.com/Swapnasruthi/Desi-Dost",
+  },
 ];
 
 export const ProjectsSection = () => {
