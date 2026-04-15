@@ -1,20 +1,31 @@
-import { Download, ExternalLink, FileDown } from "lucide-react";
+import { Download } from "lucide-react";
 import { motion } from "framer-motion";
 
 const products = [
   {
-    title: "DSA Mastery Roadmap",
-    description: "The exact roadmap I used to solve 700+ problems and crack my dream role.",
-    image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&q=80",
-    price: "Free",
-    link: "https://topmate.io/swapna_majji"
+    title: "Interview Experiences",
+    description: "Interview Experiences(Amaazon,..) + Hiring Windows + lot more",
+    image: "https://images.unsplash.com/photo-1605379399642-870262d3d051?w=800&q=80",
+    price: "₹49",
+    originalPrice: "₹99",
+    link: "https://topmate.io/swapna_majji/2050033?utm_source=public_profile&utm_campaign=swapna_majji"
   },
   {
-    title: "Interview Prep Strategies",
-    description: "Unfiltered reality checks and strategies for acing technical and behavioral rounds.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
-    price: "Free",
-    link: "https://topmate.io/swapna_majji"
+    title: "Offcampus Strategy",
+    description: "I placed through Offcampus",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
+    price: "₹49",
+    originalPrice: "₹99",
+    link: "https://topmate.io/swapna_majji/2050053?utm_source=public_profile&utm_campaign=swapna_majji"
+  },
+  {
+    title: "Resources (Worth 999/-)",
+    description: "Resources related to DSA, Development and Core Sub",
+    image: "https://images.unsplash.com/photo-1614332287897-cdc485fa562d?w=800&q=80",
+    price: "₹89",
+    originalPrice: "₹199",
+    link: "https://topmate.io/swapna_majji/2050022?utm_source=public_profile&utm_campaign=swapna_majji",
+    isBestSeller: true
   }
 ];
 
@@ -49,7 +60,7 @@ export const DigitalProductsSection = () => {
             visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
             hidden: { opacity: 0 }
           }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {products.map((product, index) => (
             <motion.div 
@@ -78,14 +89,24 @@ export const DigitalProductsSection = () => {
               
               <div className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors flex-1 pr-2">
                     {product.title}
                   </h3>
-                  <span className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full font-medium">
-                    {product.price}
-                  </span>
+                  <div className="flex flex-col items-end shrink-0 gap-1">
+                     {product.isBestSeller && (
+                        <span className="bg-[#ccff00] text-black text-[10px] px-2 py-0.5 rounded-sm font-bold uppercase tracking-wider mb-1">
+                          Best Seller
+                        </span>
+                     )}
+                     <div className="flex items-center gap-2">
+                        <span className="text-muted-foreground line-through text-xs font-medium">{product.originalPrice}</span>
+                        <span className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full font-bold">
+                          {product.price}
+                        </span>
+                     </div>
+                  </div>
                 </div>
-                <p className="text-muted-foreground mb-4 flex-grow">
+                <p className="text-muted-foreground mb-4 flex-grow pt-2">
                   {product.description}
                 </p>
               </div>
