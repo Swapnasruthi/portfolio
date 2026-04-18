@@ -36,9 +36,10 @@ export const AboutSection = () => {
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[120px]" />
       </div>
 
-      <div className="container mx-auto max-w-5xl relative z-10">
+      <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -54,15 +55,65 @@ export const AboutSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        {/* Top section: Image + Bio side by side */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-14 items-center mb-16">
+          {/* Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, type: "spring" }}
+            className="lg:col-span-2 flex justify-center"
+          >
+            <div className="relative group">
+              {/* Glow ring behind image */}
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-primary/40 via-accent/30 to-primary/40 blur-lg opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+              
+              {/* Image container */}
+              <div className="relative rounded-3xl overflow-hidden border-2 border-primary/20 shadow-2xl">
+                <img
+                  src="/favicon.jpg"
+                  alt="Swapna Majji"
+                  className="w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                {/* Subtle gradient overlay at bottom */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+              </div>
+
+              {/* Decorative floating elements around image */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-3 -right-3 p-2.5 rounded-xl bg-card border border-border/50 shadow-lg"
+              >
+                <span className="text-lg">💻</span>
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className="absolute -bottom-3 -left-3 p-2.5 rounded-xl bg-card border border-border/50 shadow-lg"
+              >
+                <span className="text-lg">✍️</span>
+              </motion.div>
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute top-1/2 -right-5 p-2.5 rounded-xl bg-card border border-border/50 shadow-lg"
+              >
+                <span className="text-lg">🚀</span>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Bio Content */}
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="space-y-6"
+            className="lg:col-span-3 space-y-6"
           >
-            <h3 className="text-2xl font-bold leading-tight">
+            <h3 className="text-2xl md:text-3xl font-bold leading-tight">
               Visibility &gt; Applications.
               <br />
               <span className="text-primary">Story &gt; Status.</span>
@@ -82,7 +133,7 @@ export const AboutSection = () => {
             </div>
 
             {/* Stats row */}
-            <div className="grid grid-cols-3 gap-4 pt-4">
+            <div className="grid grid-cols-3 gap-4 pt-2">
               {stats.map((stat, i) => (
                 <motion.div
                   key={i}
@@ -99,7 +150,7 @@ export const AboutSection = () => {
               ))}
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <a href="#services" className="cosmic-button text-center">
                 Get Mentored
               </a>
@@ -111,39 +162,40 @@ export const AboutSection = () => {
               </a>
             </div>
           </motion.div>
-
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={{
-              visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
-              hidden: { opacity: 0 }
-            }}
-            className="grid grid-cols-1 gap-5"
-          >
-            {cards.map((card, i) => (
-              <motion.div
-                key={i}
-                variants={cardAnimation}
-                whileHover={{ y: -4, boxShadow: "0 10px 40px -10px rgba(139, 92, 246, 0.15)" }}
-                className="p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-primary/10 flex-shrink-0">
-                    {card.icon}
-                  </div>
-                  <div className="text-left">
-                    <h4 className="font-bold text-lg mb-1">{card.title}</h4>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {card.description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
+
+        {/* Bottom: What I do cards */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={{
+            visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+            hidden: { opacity: 0 }
+          }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-5"
+        >
+          {cards.map((card, i) => (
+            <motion.div
+              key={i}
+              variants={cardAnimation}
+              whileHover={{ y: -4, boxShadow: "0 10px 40px -10px rgba(139, 92, 246, 0.15)" }}
+              className="p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all duration-300"
+            >
+              <div className="flex items-start gap-4">
+                <div className="p-3 rounded-xl bg-primary/10 flex-shrink-0">
+                  {card.icon}
+                </div>
+                <div className="text-left">
+                  <h4 className="font-bold text-lg mb-1">{card.title}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {card.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
