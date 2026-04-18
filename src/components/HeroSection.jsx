@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const floatingBadges = [
   { text: "700+ DSA", x: "5%", y: "20%", delay: 0.8 },
-  { text: "250K+ Impressions", x: "65%", y: "15%", delay: 1.0 },
+  { text: "300K+ Impressions", x: "65%", y: "15%", delay: 1.0 },
   { text: "Off-Campus Placed", x: "70%", y: "70%", delay: 1.2 },
   { text: "Content Creator", x: "10%", y: "65%", delay: 1.4 },
 ];
@@ -128,7 +128,7 @@ export const HeroSection = () => {
           >
             {[
               { value: "700+", label: "Problems Solved" },
-              { value: "250K+", label: "Impressions" },
+              { value: "300K+", label: "Impressions" },
               { value: "50+", label: "Students Mentored" },
             ].map((stat, i) => (
               <div key={i} className="text-center">

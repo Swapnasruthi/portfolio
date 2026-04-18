@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const stats = [
   { value: "700+", label: "DSA Problems", icon: <Brain className="h-4 w-4" /> },
-  { value: "250K+", label: "Impressions", icon: <TrendingUp className="h-4 w-4" /> },
+  { value: "300K+", label: "Impressions", icon: <TrendingUp className="h-4 w-4" /> },
   { value: "50+", label: "Students Mentored", icon: <User className="h-4 w-4" /> },
 ];
 
@@ -11,7 +11,7 @@ const cards = [
   {
     icon: <User className="h-6 w-6 text-primary" />,
     title: "Content Creation",
-    description: "Generated 250K+ impressions and built a powerful personal brand sharing unfiltered reality and life lessons.",
+    description: "Generated 300K+ impressions and built a powerful personal brand sharing unfiltered reality and life lessons.",
   },
   {
     icon: <Brain className="h-6 w-6 text-primary" />,
