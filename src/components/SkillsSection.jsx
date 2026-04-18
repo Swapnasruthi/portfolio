@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   Code2, Database, Layout, Terminal, Braces, BrainCircuit, PenTool, Video, Image, Bot, Workflow, Wrench
 } from "lucide-react";
@@ -77,49 +77,46 @@ export const SkillsSection = () => {
   const filteredSkills = skills.filter(
     (skill) => skill.category === activeCategory
   );
-  
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const item = {
-    hidden: { opacity: 0, scale: 0.8 },
-    show: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 100 } }
-  };
 
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-        <motion.h2 
+    <section id="skills" className="py-28 px-4 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-secondary/20" />
+        <div className="absolute top-0 left-0 right-0 section-divider" />
+      </div>
+
+      <div className="container mx-auto max-w-5xl relative z-10">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-3xl md:text-4xl font-bold mb-12 text-center"
+          className="text-center mb-16"
         >
-          My <span className="text-primary"> Skills</span>
-        </motion.h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+            My <span className="text-gradient-animated">Skills</span>
+          </h2>
+          <p className="text-muted-foreground max-w-lg mx-auto">
+            Tools and technologies I work with every day.
+          </p>
+        </motion.div>
 
+        {/* Category Tabs */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-16"
+          className="flex flex-wrap justify-center gap-3 mb-16"
         >
           {categories.map((category, key) => (
             <button
               key={key}
               onClick={() => setActiveCategory(category)}
               className={cn(
-                "px-5 py-2 rounded-full transition-all duration-300 capitalize text-sm font-medium",
+                "relative px-5 py-2.5 rounded-full transition-all duration-300 capitalize text-sm font-semibold",
                 activeCategory === category
-                  ? "bg-primary text-primary-foreground shadow-[0_0_15px_rgba(var(--primary),0.5)] transform scale-105"
-                  : "bg-secondary/70 text-foreground hover:bg-secondary hover:scale-105 transform border border-transparent hover:border-border"
+                  ? "bg-primary text-primary-foreground shadow-[0_0_20px_rgba(139,92,246,0.4)] scale-105"
+                  : "bg-card text-foreground/70 hover:text-foreground border border-border/50 hover:border-primary/30 hover:scale-105"
               )}
             >
               {category}
@@ -127,34 +124,38 @@ export const SkillsSection = () => {
           ))}
         </motion.div>
 
-        {/* Change key to activeCategory to remount and trigger animation on tab switch */}
-        <motion.div 
-          key={activeCategory}
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
-        >
-          {filteredSkills.map((skill, key) => (
-            <motion.div
-              variants={item}
-              whileHover={{ y: -8, scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              key={key}
-              className="flex flex-col items-center justify-center p-6 rounded-2xl bg-secondary/20 border border-border/50 hover:border-primary/50 transition-colors duration-300 hover:bg-secondary/40 group shadow-sm hover:shadow-[0_0_20px_rgba(var(--primary),0.15)] flex-1 min-h-[160px]"
-            >
-              <div className="p-4 rounded-full bg-background mb-4 group-hover:scale-110 transition-transform duration-300 border border-border group-hover:border-primary/30 flex items-center justify-center">
-                  <div className="[&>svg]:w-8 [&>svg]:h-8 text-muted-foreground group-hover:text-primary transition-colors duration-300">
+        {/* Skills Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5"
+          >
+            {filteredSkills.map((skill, key) => (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: key * 0.05, type: "spring", stiffness: 100 }}
+                whileHover={{ y: -8, scale: 1.05, boxShadow: "0 10px 30px -5px rgba(139, 92, 246, 0.15)" }}
+                whileTap={{ scale: 0.95 }}
+                key={key}
+                className="flex flex-col items-center justify-center p-6 rounded-2xl bg-card border border-border/50 hover:border-primary/40 transition-all duration-300 group min-h-[160px]"
+              >
+                <div className="p-4 rounded-2xl bg-secondary/50 mb-4 group-hover:bg-primary/10 group-hover:scale-110 transition-all duration-300 border border-border/30 group-hover:border-primary/20">
+                  <div className="[&>svg]:w-7 [&>svg]:h-7 text-muted-foreground group-hover:text-primary transition-colors duration-300">
                     {getSkillIcon(skill.name, skill.category)}
                   </div>
-              </div>
-              <h3 className="font-bold text-sm text-center text-foreground/80 group-hover:text-foreground transition-colors duration-300"> 
-                {skill.name}
-              </h3>
-            </motion.div>
-          ))}
-        </motion.div>
+                </div>
+                <h3 className="font-bold text-sm text-center text-foreground/80 group-hover:text-foreground transition-colors duration-300"> 
+                  {skill.name}
+                </h3>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
