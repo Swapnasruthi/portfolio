@@ -2,10 +2,10 @@ import { ArrowDown, ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 const floatingBadges = [
-  { text: "700+ DSA", x: "-10%", y: "20%", delay: 0.8 },
-  { text: "250K+ Impressions", x: "75%", y: "15%", delay: 1.0 },
-  { text: "Off-Campus Placed", x: "80%", y: "70%", delay: 1.2 },
-  { text: "Content Creator", x: "-5%", y: "65%", delay: 1.4 },
+  { text: "700+ DSA", x: "5%", y: "20%", delay: 0.8 },
+  { text: "250K+ Impressions", x: "65%", y: "15%", delay: 1.0 },
+  { text: "Off-Campus Placed", x: "70%", y: "70%", delay: 1.2 },
+  { text: "Content Creator", x: "10%", y: "65%", delay: 1.4 },
 ];
 
 export const HeroSection = () => {
